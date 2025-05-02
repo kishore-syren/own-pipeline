@@ -1,0 +1,12 @@
+name: Mypipeline
+on:
+  push:
+    branches:
+      - kishore_Test_branch
+  workflow_dispatch: {}
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello world
+        run: echo "Hello-World"
