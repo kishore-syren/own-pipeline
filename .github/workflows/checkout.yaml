@@ -1,9 +1,11 @@
 name: push event
-on:
+on: 
   push:
-    branches: main
-jobs:
+    branches: kishore_Test_branch
+jobs: 
+  test-job:
   runs-on: ubuntu-latest
+  
   steps:
     - name: List files before checkout
       run: ls -a
