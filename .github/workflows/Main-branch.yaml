@@ -1,0 +1,55 @@
+name: MainBranch-event
+on:
+  push:
+    branches: main 
+  path:
+    - README.md  
+  
+  pull_request:
+    types:
+      - closed
+      - opened
+      - reopened
+    branches: main
+
+  issues: 
+    types:
+      - opened
+      - closed
+    branches: main  
+
+  schedule:
+    - cron: '*/2 * * * *' 
+  
+  workflow_dispatch: 
+
+jobs:
+  job2:
+  if: github.event_name == 'pull_request'
+  runs-on: ubuntu-latest
+  
+  steps:
+    - name: List files before checkout 
+      run: ls -a 
+
+    - uses: actions/checkout@v4
+
+    - name: List files after checkout
+      run: ls -a 
+
+    - name: Run job2 Task
+      run: echo "Job 2 is triggered by pull request" 
+
+
+
+
+  
+
+  
+
+      
+
+
+
+       
+       
