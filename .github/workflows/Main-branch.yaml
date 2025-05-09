@@ -54,3 +54,15 @@ jobs:
     steps:
       - name: Run job1 Task
         run: echo "Job 1 ran because Job 2 completed"
+
+  job3:
+    name: job 3 is dependent on job 1
+    needs: job1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: List working directory
+        run: |
+          pwd
+      - name: Run job 3
+        run: echo "job 3 is running because job 1 is completed"        
