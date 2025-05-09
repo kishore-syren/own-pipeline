@@ -1,55 +1,47 @@
 name: MainBranch-event
+
 on:
   push:
-    branches: main 
-  path:
-    - README.md  
-  
+    branches:
+      - main
+    paths:
+      - README.md
+
   pull_request:
     types:
       - closed
       - opened
       - reopened
-    branches: main
+    branches:
+      - main
 
-  issues: 
+  issues:
     types:
       - opened
       - closed
-    branches: main  
+    branches:
+      - main
 
   schedule:
-    - cron: '*/2 * * * *' 
-  
-  workflow_dispatch: 
+    - cron: "*/2 * * * *"
+
+  workflow_dispatch:
 
 jobs:
   job2:
-  if: github.event_name == 'pull_request'
-  runs-on: ubuntu-latest
-  
-  steps:
-    - name: List files before checkout 
-      run: ls -a 
+    name: Job 2 - Pull Request Task
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
 
-    - uses: actions/checkout@v4
+    steps:
+      - name: List files before checkout
+        run: ls -a
 
-    - name: List files after checkout
-      run: ls -a 
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Run job2 Task
-      run: echo "Job 2 is triggered by pull request" 
+      - name: List files after checkout
+        run: ls -a
 
-
-
-
-  
-
-  
-
-      
-
-
-
-       
-       
+      - name: Run Job 2 Task
+        run: echo "Job 2 is triggered by pull request"
