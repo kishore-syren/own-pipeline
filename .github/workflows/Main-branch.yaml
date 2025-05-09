@@ -45,3 +45,12 @@ jobs:
 
       - name: Run Job 2 Task
         run: echo "Job 2 is triggered by pull request"
+
+  job1:
+    name: Job 1 - Is dependent on job 2
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      name: Run job 1
+      run: echo "job 1 is running because job 2 is completed and this need pull request"      
