@@ -52,5 +52,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      name: Run job 1
-      run: echo "job 1 is running because job 2 is completed and this need pull request"      
+      - name: Run job1 Task
+        run: echo "Job 1 ran because Job 2 completed"
