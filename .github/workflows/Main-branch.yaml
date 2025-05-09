@@ -49,7 +49,9 @@ jobs:
   job1:
     name: Job 1 - Is dependent on job 2
     if: github.event_name == 'pull_request'
+    needs: job2
     runs-on: ubuntu-latest
+    
 
     steps:
       - name: Run job1 Task
