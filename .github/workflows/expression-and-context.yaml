@@ -51,5 +51,4 @@ jobs:
           echo "github: ${{ toJson(github) }}"
           echo "secrets: ${{ toJson(secrets) }}"
           echo "steps: ${{ toJson(steps) }}"
-          echo "jobs: ${{ toJson(jobs) }}"
           echo "runner: ${{ toJson(runner) }}"
