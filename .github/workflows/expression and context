@@ -22,11 +22,11 @@ on:
 jobs:
   jobs1:
     name: Test jobs1
-    runs-on: ubuntu-latest  # Fixed typo: "ubundu" → "ubuntu"
+    runs-on: ubuntu-latest 
 
     steps:
       - name: Checkout files
-        uses: actions/checkout@v4  # Fixed indentation and misplaced key
+        uses: actions/checkout@v4  
 
       - name: List files
         run: ls -a
@@ -34,11 +34,11 @@ jobs:
       - name: Expressions
         run: |
           echo "${{ 1 }}"
-          echo "${{ 'This is string' }}"  # Wrapped string in quotes
+          echo "${{ 'This is string' }}"
           echo "${{ null }}"
           echo "${{ true || false }}"
           echo "${{ 1 > 2 }}"
-          echo "${{ true && false }}"  # Fixed: 'A && b' is not valid
+          echo "${{ true && false }}"  
 
   job2:
     name: Test job2
