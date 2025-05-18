@@ -1,0 +1,55 @@
+name: Expressions and context
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    types:
+      - opened
+      - closed
+    branches:
+      - main
+
+  issues:
+    types:
+      - opened
+      - closed
+
+  workflow_dispatch:
+
+jobs:
+  jobs1:
+    name: Test jobs1
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v4  
+
+      - name: List files
+        run: ls -a
+
+      - name: Expressions
+        run: |
+          echo "${{ 1 }}"
+          echo "${{ 'This is string' }}"  
+          echo "${{ null }}"
+          echo "${{ true || false }}"
+          echo "${{ 1 > 2 }}"
+          echo "${{ true && false }}" 
+
+  job2:
+    name: Test job2
+    runs-on: ubuntu-latest  # Fixed typo
+    needs: jobs1
+
+    steps:
+      - name: Show context
+        run: |
+          echo "github: ${{ toJson(github) }}"
+          echo "secrets: ${{ toJson(secrets) }}"
+          echo "steps: ${{ toJson(steps) }}"
+          echo "jobs: ${{ toJson(jobs) }}"
+          echo "runner: ${{ toJson(runner) }}"
