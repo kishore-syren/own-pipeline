@@ -52,3 +52,9 @@ jobs:
           echo "secrets: ${{ toJson(secrets) }}"
           echo "steps: ${{ toJson(steps) }}"
           echo "runner: ${{ toJson(runner) }}"
+
+      - name: Upload context as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: context-details
+          path: context-output.txt      
