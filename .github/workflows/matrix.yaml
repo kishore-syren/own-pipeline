@@ -16,8 +16,9 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: List OS type
-        run: echo "runner os: ${{ runner.os }}"
+
+      - name: python version   
+        run:  python --version 
 
       - name: Setup Python
         uses: actions/setup-python@v4
