@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: List OS type
-        run: echo "runner os: ${{ toJson(runner.os) }}"
+        run: echo "runner os: ${{ runner.os }}"
 
       - name: Check default Python version
         run: python --version
