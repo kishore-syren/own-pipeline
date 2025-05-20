@@ -1,34 +1,28 @@
 name: My matrix
+
 on:
   push:
     branches:
       - main
-  
-  pull_request:
-    types:
-      - opened
-      - closed      
 
 jobs:
   test-matrix:
     name: Test matrix
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest]  
+        os: [windows-latest, ubuntu-latest]
         python-version: ['3.6', '3.7', '3.8', '3.9']
+
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: List OS type
         run: echo "runner os: ${{ runner.os }}"
 
-      - name: Check default Python version
-        run: python --version
-
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Check Python version after setup
+      - name: Check Python version
         run: python --version
