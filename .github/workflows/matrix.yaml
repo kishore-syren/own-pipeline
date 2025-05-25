@@ -1,14 +1,6 @@
 name: My matrix
 
-on:
-  push:
-    branches:
-      - main
-
-  pull_request:
-    types:
-      - opened
-      - closed    
+on: workflow_call   
 
 jobs:
   matrix-test:
