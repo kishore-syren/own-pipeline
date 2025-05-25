@@ -1,0 +1,17 @@
+name: Reusable matrix
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    types:
+      - opened
+      - closed    
+
+jobs:
+  matrix-test:
+    uses:  kishore-syren/own-pipeline/.github/workflows/matrix.yaml@main
+
+   
