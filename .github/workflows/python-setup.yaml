@@ -1,0 +1,9 @@
+name: calling Reusable python
+
+on:
+  push:
+    branches: main
+
+jobs:
+  setup-python:
+    uses: kishore-syren/Reusableworkflows/.github/workflows/python-reusable-matrix.yaml@main
