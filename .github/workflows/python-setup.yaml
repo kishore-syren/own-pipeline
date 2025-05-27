@@ -7,3 +7,6 @@ on:
 jobs:
   setup-python:
     uses: kishore-syren/Reusableworkflows/.github/workflows/python-reusable-matrix.yaml@main
+    with:
+      os: ubuntu-latest
+      python-version: '3.11'
